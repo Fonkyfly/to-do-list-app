@@ -1,0 +1,34 @@
+Login:
+    - username: root
+    - password: root
+    - address: 192.168.33.10/admin
+Database: 
+    - todolist
+Tables:
+    - users (username, created, modified, id)
+    - todos (user_id, text, is_done, created, modified, id)
+    users(id) = todos(user_id)
+
+
+
+CREATE DATABASE todolist;
+CREATE TABLE users(
+    id INT UNSIGNED AUTOINCREMENT,
+    username VARCHAR(255) NOT NULL,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT ON UPDATE CURRENT_TIMESTAMP
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE todos(
+    id INT UNSIGNED NOT NULL AUTOINCREMENT,
+    user_id INT UNSIGNED NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    text VARCHAR(255) NOT NULL,
+    is_done TINYINT(1) UNSIGNED
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified TIMESTAMP DEFAULT ON UPDATE CURRENT_TIMESTAMP
+    PRIMARY KEY (id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
