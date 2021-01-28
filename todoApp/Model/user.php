@@ -1,14 +1,13 @@
 <?php
 
-include(__DIR__ . '/../pdo/db.php');
-// CRUD
+include_once(__DIR__ . '/../pdo/db.php');
 
-function createUser($username, $password)
+function createUser($username)
 {
     $pdo = connectDB();
-    $sql = "INSERT INTO users (username, password, id) VALUES (?,?)";
+    $sql = "INSERT INTO users (username) VALUES (?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$username, $password]);
+    $stmt->execute([$username]);
 }
 
 function removeUser($id)
@@ -33,8 +32,21 @@ function viewUser($id)
     $sql = "SELECT * FROM users WHERE id = $id";
     $stmt = $pdo->query($sql);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    var_dump($row['username']);
-    var_dump($row['id']);
+    $user = $row['username'];
+    return $user;
+}
+
+function viewNewUser()
+{
+    $pdo = connectDB();
+    $sql = "SELECT * FROM users";
+    $stmt = $pdo->query($sql);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user = array();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $user = $row;
+    }
+    return $user;
 }
 
 function viewUsers()
@@ -42,10 +54,9 @@ function viewUsers()
     $pdo = connectDB();
     $sql = "SELECT * FROM users";
     $stmt = $pdo->query($sql);
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        echo '<li>';
-        var_dump($row['username']);
-        var_dump($row['id']);
-        echo '</li>';
+    $users = array();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        array_push($users, $row);
     }
+    return $users;
 }

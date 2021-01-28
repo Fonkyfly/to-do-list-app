@@ -1,6 +1,6 @@
 <?php
 
-// CRUD
+include_once(__DIR__ . '/../pdo/db.php');
 
 function createTodo($user_id, $title, $text)
 {
@@ -45,7 +45,7 @@ function changeTodoDone($id)
 
 function todoUndone($id)
 {
-    $done = NULL;
+    $done = null;
     $pdo = connectDB();
     $sql = "UPDATE todos SET done = ? WHERE id = ?";
     $stmt = $pdo->prepare($sql);
@@ -58,19 +58,17 @@ function viewTodo($id)
     $sql = "SELECT * FROM todos WHERE id = $id";
     $stmt = $pdo->query($sql);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    var_dump($row['title']);
-    var_dump($row['text']);
+    return $row;
 }
 
-function viewUserTodos($user_id)
+function userTodos($user_id)
 {
     $pdo = connectDB();
     $sql = "SELECT * FROM todos WHERE user_id = $user_id";
     $stmt = $pdo->query($sql);
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        var_dump($row['title']);
-        var_dump($row['text']);
-        echo '<br>';
+    $todos = array();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        array_push($todos, $row);
     }
+    return $todos;
 }
-

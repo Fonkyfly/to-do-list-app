@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css2?family=Handlee');
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300, 400');
+@font-face {
+    font-family: "Didact";
+    src: url("Fonts/Didact.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+
+    font-family: "Handlee";
+    src: url("Fonts/Handlee.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+
+    font-family: "Indieflower";
+    src: url("Fonts/Indieflower.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+
+    font-family: "Satisfy";
+    src: url("Fonts/Satisfy.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+
+    font-family: "Nunito";
+    src: url("Fonts/Nunito-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    color: #ffffff;
+    font-family: "Handlee";
+    text-align: center;
+    border: 2px solid white;
+    width: 40%; 
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    font-size: 2.3em;
+}
+
+h2 {
+    color: #ffffff;
+    font-family: "Handlee";
+    text-align: center;
+    border: 2px solid white;
+    width: 40%; 
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    font-size: 1.7em;
+}
+
+body {
+    background-color: rgb(138, 192, 13);
+    color: white;
+    font-family: "Nunito";
+}
+
+ul {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+a {
+    color:#73AD21;
+    border: 1px solid #73AD21;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 5px;
+}
+
+a:link:hover {
+    color:white;
+}
+
+a:visited:hover {
+    color: white;
+}
+
+li {
+    color:#555;
+    list-style: none;
+    border: 1px solid green;
+    width: 200px;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 3px;
+    text-align: left;
+    padding-left: 15px;
+
+}
+
+.useritem:hover {
+    list-style: none;
+    border: 1px solid green;
+    width: 200px;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #73AD21;
+    color:white;
+}
+
+.useritem:hover a {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+    color: #73AD21;
+}
+
+.main-section {
+    color: #555;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    width: 360px;
+}
+
+.text-box{
+    height: 18px;
+    border-radius: 2px;
+    border: 1.3px solid black;
+}
+
+.submit-button {
+    background-color: #73AD21;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #73AD21;
+    margin: 1px;
+}
+
+.submit-button:hover {
+    background-color: white;
+    color: #73AD21;
+    border: 1px solid #73AD21;
+    cursor: pointer;
+}
+
+.aignore {
+    border: none;
+}
+
